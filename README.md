@@ -3,5 +3,5 @@ Integration tests in xUnit.
 
 This is a template project that I took from the tutorial, and I added new tests that would include to edit a bit the controller adding validations. Getting familiar with integration cases.
 
-Tests are in Product/Product.IntegrationTests/ProductScenarios.cs
-Controller is in
+- Tests are in Product/Product.IntegrationTests/ProductScenarios.cs
+- Controller is in /Product/Product.API/Controllers/ProductsController.cs
