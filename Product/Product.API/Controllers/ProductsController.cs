@@ -60,6 +60,11 @@ public class ProductsController : ControllerBase
             return Conflict();
         }
 
+        if (string.IsNullOrWhiteSpace(product.Name))
+        {
+            return BadRequest();
+        }
+
         await _productContext.Products.AddAsync(product);
         await _productContext.SaveChangesAsync();
 

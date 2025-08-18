@@ -176,4 +176,23 @@ public class ProductScenarios : ProductScenariosBase
         // Assert
         response.StatusCode.Should().Be(HttpStatusCode.Conflict);
     }
+
+    [Fact]
+    public async Task Post_create_product_with_invalid_name_and_response_status_code_bad_request()
+    {
+        // Arrange
+        using ProductTestServer server = CreateServer();
+        using HttpClient httpClient = server.CreateClient();
+        CreateProductViewModel productToCreate = new(null, 1.2, true);
+        StringContent requestContent = BuildRequestContent(productToCreate);
+
+        // Act
+        HttpResponseMessage response = await httpClient
+            .PostAsync("api/v1/products", requestContent);
+
+        // Assert
+        response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+    }
+
+
 }
